@@ -5,6 +5,7 @@ module.exports = {
     sidebar: {
       '/modules/' :[
         '',
+        'path',
         'buffer',
         'dns',
       ],
