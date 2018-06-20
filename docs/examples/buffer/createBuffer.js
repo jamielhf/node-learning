@@ -12,3 +12,5 @@ const buf2 = Buffer.from();
 const buf3 = Buffer.from(buf1);
 
 const buf4 = Buffer.from('jamie','utf-8');
+
+console.log(buf1,buf2,buf3,buf4)
