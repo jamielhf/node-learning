@@ -8,6 +8,7 @@ module.exports = {
         'path',
         'buffer',
         'timer',
+        'net',
         'eventloop',
         'dns',
       ],
