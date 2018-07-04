@@ -1,14 +1,24 @@
-const net = require('net');
+var net = require('net');
 
-const PORT = '3001', HOST = '127.0.01';
+var PORT = 3002;
+var HOST = '127.0.0.1';
 
-const server = net.createServer((socket)=>{
-  socket.on('close',()=>{
-    console.log('关闭');
-  })
-})
+// tcp服务端
+var server = net.createServer(function(socket){
+    console.log('服务端：收到来自客户端的请求');
 
+    socket.on('data', function(data){
+        console.log('服务端：收到客户端数据，内容为{'+ data +'}');
 
-server.listen(PORT,HOST,()=>{
-  console.log('服务端：开始监听');
-})
+        // 给客户端返回数据
+        socket.write('你好，我是服务端');
+    });
+
+    socket.on('close', function(){
+         console.log('服务端：客户端连接断开');
+         socket.write('你好，我是服务端');
+    });
+});
+server.listen(PORT, HOST, function(){
+    console.log('服务端：开始监听来自客户端的请求');
+});
