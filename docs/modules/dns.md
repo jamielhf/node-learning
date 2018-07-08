@@ -4,7 +4,7 @@
 
 主要处理DNS服务器的域名解析和反解析
 
-## 域名解析 
+## 域名解析
 
 ### dns.lookup(hostname[, options], callback)
 

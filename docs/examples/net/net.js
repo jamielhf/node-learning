@@ -17,6 +17,7 @@ var server = net.createServer(function(socket){
     socket.on('close', function(){
          console.log('服务端：客户端连接断开');
          socket.write('你好，我是服务端');
+         socket.write('你好，我是服务端');
     });
 });
 server.listen(PORT, HOST, function(){
