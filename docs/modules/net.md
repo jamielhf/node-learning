@@ -93,10 +93,30 @@ input 是否是 IP 地址。无效的字符串则返回 0，IPv4 地址则返回
 
 net.Server 是EventEmitter 的实例
 
-### 事件
+### 监听的事件 on('xxx')
 
 `close` 当server关闭的时候触发  
-`connection` 当一个新的connection建立的时候触发
-`error` 当错误出现的时候触发
+`connection` 当一个新的connection建立的时候触发  
+`error` 当错误出现的时候触发  
 `listening` 当服务被绑定后调用 server.listen()
 
+### 一些方法和属性
+
+`server.address()` 只有到了 'listening' 事件被触发时候.才可以调用 server.address()
+`server.close([callback])` 关闭server, 触发close事件  
+`server.getConnections(callback)`  异步获取服务器的当前并发连接数。回调函数的两个参数是 err 和 count。  
+`server.listen()`   一个布尔值， 表明 server 是否正在监听连接
+`server.maxConnections`   置该属性使得当 server 连接数过多时拒绝连接
+`server.ref()`
+`server.unref()`
+
+## net.Socket 类
+
+一个net.Socket也是一个duplex stream，所以它能被读或写，并且它也是一个EventEmitter。
+
+### 监听的事件
+
+`close` 当server关闭的时候触发  
+`connection` 当一个新的connection建立的时候触发  
+`error` 当错误出现的时候触发  
+`listening` 当服务被绑定后调用 server.listen()

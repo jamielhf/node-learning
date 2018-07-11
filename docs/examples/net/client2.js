@@ -13,4 +13,4 @@ socket.write('我是客户端2');
 
 socket.write('我是客户端3');
 
-socket.end('我是客户端，结束连接了')
+// socket.end('我是客户端，结束连接了')
