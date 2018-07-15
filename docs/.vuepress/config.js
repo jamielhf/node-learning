@@ -11,6 +11,7 @@ module.exports = {
         'net',
         'eventloop',
         'dns',
+        'fs',
       ],
     }
   }
