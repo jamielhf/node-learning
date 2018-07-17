@@ -16,5 +16,29 @@ const path = require('path');
 // fs.mkdtemp(os.tmpdir(), (err, folder) => {
 //   if (err) throw err;
 //   console.log(folder);
-// });
+// // });
 
+
+
+
+// 遍历文件夹下面的文件
+function readDir(p){
+  const file = fs.readdirSync(p,'utf8');
+  let results = [ ];
+
+  for(const i of file){
+    const newP = path.resolve(p,i);
+    const stat = fs.statSync(newP);
+    if(stat.isDirectory()){ 
+      const t = {
+        [i]:readDir(newP),
+      };
+      results.push(t);
+    }else{
+      results.push(i);
+    }
+  }
+  return results;
+}
+const f = readDir('../')
+console.log(f);
